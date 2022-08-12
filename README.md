@@ -1,9 +1,9 @@
 ## Flutter - WHO medical app. Test Task for a Flutter Developer position at Software development hub.
 
-<p float="left">
-  <img src="screenshots/home_page.jpg" width="100" />
-  <img src="screenshots/details.jpg" width="100" /> 
-  <img src="screenshots/no_inet.jpg" width="100" />
+<p float="center">
+  <img src="screenshots/home_page.jpg" width="300" />
+  <img src="screenshots/details.jpg" width="300" /> 
+  <img src="screenshots/no_inet.jpg" width="300" />
 </p>
 
 ### Run Locally
