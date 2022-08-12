@@ -11,7 +11,7 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/
+  git clone https://github.com/ComputerScienceHayk/who_app.git
 ```
 
 Install dependencies
