@@ -1,0 +1,58 @@
+name: sdh_task
+description: Test Task for a Flutter Developer position at Software development hub.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  icons_launcher: ^2.0.2
+
+  # for network
+  http: ^0.13.5
+  equatable: ^2.0.3
+  injectable: ^1.5.3
+  dartz: ^0.10.1
+  # for check internet connection
+  internet_connection_checker: ^0.0.1+4
+  # GetIt for dependency Injection
+  get_it: ^7.2.0
+  # for caching
+  shared_preferences: ^2.0.15
+  number_pagination: ^0.0.3+2
+  # for state management
+  flutter_bloc: ^8.0.1
+  bot_toast: ^4.0.3
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+icons_launcher:
+  image_path: 'assets/images/logo.png'
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+    - family: SanFrancisco
+      fonts:
+        - asset: assets/fonts/San-Francisco-Regular.otf
+
