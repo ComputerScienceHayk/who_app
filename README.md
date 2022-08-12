@@ -1,8 +1,10 @@
 ## Flutter - WHO medical app. Test Task for a Flutter Developer position at Software development hub.
 
-![alt text](screenshots/home_page.jpg)
-![alt text](screenshots/details.jpg)
-![alt text](screenshots/no_inet.jpg)
+<p float="center">
+  <img src="screenshots/home_page.jpg" width="300" />
+  <img src="screenshots/details.jpg" width="300" /> 
+  <img src="screenshots/no_inet.jpg" width="300" />
+</p>
 
 ### Run Locally
 
@@ -109,4 +111,7 @@ lib/
 - shared_preferences: https://pub.dev/packages/shared_preferences
 - number_pagination: https://pub.dev/packages/number_pagination
 - flutter_bloc: https://pub.dev/packages/flutter_bloc
+<<<<<<< HEAD
 - bot_toast: https://pub.dev/packages/bot_toast
+=======
+>>>>>>> 9892328db3bad862fbe41db673737585bb748103
