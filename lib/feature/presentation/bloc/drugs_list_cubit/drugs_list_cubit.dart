@@ -10,6 +10,7 @@ class DrugsListCubit extends Cubit<DrugsListState> {
 
   DrugsListCubit({required this.getDrugsList}) : super(DrugsListEmpty());
 
+  int drugCount = 0;
   int pageCount = 1;
   int pageNumber = 1;
 
@@ -51,7 +52,8 @@ class DrugsListCubit extends Cubit<DrugsListState> {
 
         DrugsListEntity drugsList = (state as DrugsListLoading).drugsListEntity;
         drugsList = drugs;
-        pageCount =  drugsList.drugCount ~/ drugsList.result.length;
+        drugCount = drugsList.drugCount;
+        pageCount =  drugCount ~/ drugsList.result.length;
 
         emit(
           DrugsListLoaded(

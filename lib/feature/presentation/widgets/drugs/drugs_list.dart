@@ -11,6 +11,7 @@ class DrugsList extends StatelessWidget {
   const DrugsList({
     Key? key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DrugsListCubit, DrugsListState>(
@@ -30,7 +31,6 @@ class DrugsList extends StatelessWidget {
             ),
           );
         }
-        debugPrint('drugsList === ${drugsList}');
         return SliverList(
           delegate: SliverChildListDelegate(
             [

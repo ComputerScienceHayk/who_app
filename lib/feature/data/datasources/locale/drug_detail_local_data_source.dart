@@ -14,13 +14,13 @@ class DrugDetailsLocalDataSourceImpl implements DrugDetailsLocalDataSource {
   DrugDetailsLocalDataSourceImpl({required this.sharedPreferences});
   @override
   Future<DrugDetailsModel> getLastDrugFromCache() {
-    final jsonDrugsList =
+    final jsonDrugDetails =
         sharedPreferences.getString(ConstTexts.cachedDrugDetails);
-    if (jsonDrugsList!.isNotEmpty) {
+    if (jsonDrugDetails?.isNotEmpty ?? false) {
       return Future.value(
         DrugDetailsModel.fromJson(
           json.decode(
-            jsonDrugsList,
+            jsonDrugDetails ?? '',
           ),
         ),
       );

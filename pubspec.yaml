@@ -13,18 +13,32 @@ dependencies:
 
   # for network
   http: ^0.13.5
+
+  # for comparing objects
   equatable: ^2.0.3
+
+  # code generator for get_it
   injectable: ^1.5.3
+
+  # for functional programming in Dart
   dartz: ^0.10.1
+
   # for check internet connection
   internet_connection_checker: ^0.0.1+4
+
   # GetIt for dependency Injection
   get_it: ^7.2.0
+
   # for caching
   shared_preferences: ^2.0.15
+
+  # for bottom navigation
   number_pagination: ^0.0.3+2
+
   # for state management
   flutter_bloc: ^8.0.1
+
+  # for toast message
   bot_toast: ^4.0.3
 
   cupertino_icons: ^1.0.2

@@ -17,10 +17,10 @@ class DrugsListLocalDataSourceImpl implements DrugsListLocalDataSource {
   Future<DrugsListModel> getLastDrugsListFromCache() {
     final jsonDrugsList =
         sharedPreferences.getString(ConstTexts.cachedDrugsList);
-    if (jsonDrugsList!.isNotEmpty) {
+    if (jsonDrugsList?.isNotEmpty ?? false) {
       return Future.value(
         DrugsListModel.fromJson(
-          json.decode(jsonDrugsList),
+          json.decode(jsonDrugsList??''),
         ),
       );
     } else {

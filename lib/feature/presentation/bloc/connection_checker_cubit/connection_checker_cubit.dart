@@ -4,7 +4,9 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:sdh_task/feature/presentation/bloc/connection_checker_cubit/connection_checker_state.dart';
 
 class ConnectionCheckerCubit extends Cubit<ConnectionCheckerState> {
-  ConnectionCheckerCubit() : super(Connected());
+  ConnectionCheckerCubit() : super(const Connected(true));
+
+  bool connected = true;
 
   Future<void> execute(
     InternetConnectionChecker internetConnectionChecker,
@@ -14,10 +16,12 @@ class ConnectionCheckerCubit extends Cubit<ConnectionCheckerState> {
       (InternetConnectionStatus status) {
         switch (status) {
           case InternetConnectionStatus.connected:
-            emit(Connected());
+            connected = true;
+            emit(Connected(connected));
             break;
           case InternetConnectionStatus.disconnected:
-            emit(Disconnected());
+            connected = false;
+            emit(Disconnected(connected));
             break;
         }
       },

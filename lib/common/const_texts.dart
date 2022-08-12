@@ -9,4 +9,5 @@ class ConstTexts {
   static const String cachedDrugDetails = 'CACHED_DRUG_DETAILS';
   static const String details = 'Details';
   static const String noInformation = 'No information';
+  static const String offlineVersion = 'You are viewing the offline version of this page';
 }
