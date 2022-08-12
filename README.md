@@ -111,7 +111,4 @@ lib/
 - shared_preferences: https://pub.dev/packages/shared_preferences
 - number_pagination: https://pub.dev/packages/number_pagination
 - flutter_bloc: https://pub.dev/packages/flutter_bloc
-<<<<<<< HEAD
 - bot_toast: https://pub.dev/packages/bot_toast
-=======
->>>>>>> 9892328db3bad862fbe41db673737585bb748103
