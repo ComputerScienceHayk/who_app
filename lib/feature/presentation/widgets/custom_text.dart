@@ -9,6 +9,7 @@ class CustomText extends StatelessWidget {
     this.color = AppColors.textColor,
     this.fontSize = 14.0,
     this.fontWeight = FontWeight.normal,
+    this.textOverflow = TextOverflow.visible,
     Key? key,
   }) : super(key: key);
 
@@ -16,6 +17,7 @@ class CustomText extends StatelessWidget {
   final Color color;
   final double fontSize;
   final FontWeight? fontWeight;
+  final TextOverflow? textOverflow;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class CustomText extends StatelessWidget {
                 : 'Roboto',
         color: color,
         fontSize: fontSize,
+        overflow: textOverflow,
         fontWeight: fontWeight,
       ),
     );

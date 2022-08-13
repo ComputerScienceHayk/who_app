@@ -38,7 +38,7 @@ class DrugsListItem extends StatelessWidget {
           horizontal: 40.0,
           vertical: 10.0,
         ),
-        height: 90,
+        height: 70,
         decoration: BoxDecoration(
           color: AppColors.drugsListItemBg,
           borderRadius: BorderRadius.circular(10),
@@ -51,12 +51,21 @@ class DrugsListItem extends StatelessWidget {
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomText(text: tradeLabelName),
-            const SizedBox(width: 10),
-            CustomText(text: manufactureName),
+            Expanded(
+              child: CustomText(
+                text: tradeLabelName,
+                textOverflow: TextOverflow.ellipsis,
+              ),
+            ),
+            Expanded(
+              child: CustomText(
+                text: manufactureName,
+                textOverflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ),
