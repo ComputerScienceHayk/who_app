@@ -2,7 +2,6 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sdh_task/common/app_colors.dart';
-import 'package:sdh_task/common/const_size.dart';
 import 'package:sdh_task/common/const_texts.dart';
 import 'package:sdh_task/feature/presentation/bloc/connection_checker_cubit/connection_checker_cubit.dart';
 import 'package:sdh_task/feature/presentation/bloc/connection_checker_cubit/connection_checker_state.dart';
@@ -28,7 +27,6 @@ class _DrugsScreenState extends State<DrugsScreen> {
   }
 
   final ScrollController scrollController = ScrollController();
-  bool scrolled = false;
   String? cachedDrugsList;
 
   void showToast(String text) {
@@ -43,19 +41,6 @@ class _DrugsScreenState extends State<DrugsScreen> {
         ),
       ),
     );
-  }
-
-  bool scrollLogic(UserScrollNotification notification) {
-    if (scrollController.position.pixels > ConstSize.expandedHeight) {
-      setState(() {
-        scrolled = true;
-      });
-    } else {
-      setState(() {
-        scrolled = false;
-      });
-    }
-    return true;
   }
 
   Future<void> checkCache() async {
@@ -79,18 +64,15 @@ class _DrugsScreenState extends State<DrugsScreen> {
           return SafeArea(
             child: Scaffold(
               backgroundColor: AppColors.mainBackground,
-              body: NotificationListener<UserScrollNotification>(
-                onNotification: scrollLogic,
-                child: CustomScrollView(
-                  controller: scrollController,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  slivers: [
-                    DrugsListAppBar(scrolled: scrolled),
-                    const DrugsList(),
-                  ],
-                ),
+              body: CustomScrollView(
+                controller: scrollController,
+                physics: const AlwaysScrollableScrollPhysics(),
+                slivers: const[
+                  DrugsListAppBar(),
+                  DrugsList(),
+                ],
               ),
-              bottomNavigationBar: const BottomNavNumbers(),
+              bottomNavigationBar: BottomNavNumbers(controller: scrollController),
             ),
           );
         },

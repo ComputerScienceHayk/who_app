@@ -7,7 +7,11 @@ import 'package:sdh_task/feature/presentation/bloc/drugs_list_cubit/drugs_list_c
 import 'package:sdh_task/feature/presentation/bloc/drugs_list_cubit/drugs_list_state.dart';
 
 class BottomNavNumbers extends StatelessWidget {
-  const BottomNavNumbers({Key? key}) : super(key: key);
+  const BottomNavNumbers({
+    required this.controller,
+    Key? key,
+  }) : super(key: key);
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +26,8 @@ class BottomNavNumbers extends StatelessWidget {
           pageCount = state.pagesCount;
           pageNumber = state.pageNumber;
         }
-        debugPrint('pageCount === $pageCount');
-        debugPrint('pageCount === $pageNumber');
         return NumberPagination(
-          threshold: 5,
+          threshold: Platform.isIOS ? 4 : 5,
           controlButton: const SizedBox.shrink(),
           iconNext: const Padding(
             padding: EdgeInsets.all(5.0),
@@ -46,7 +48,11 @@ class BottomNavNumbers extends StatelessWidget {
           iconToLast: const SizedBox.shrink(),
           iconToFirst: const SizedBox.shrink(),
           onPageChanged: (int pageNumber) {
-            debugPrint('pageNumber $pageNumber');
+            controller.animateTo(
+              0,
+              duration: const Duration(milliseconds: 1),
+              curve: Curves.linear,
+            );
             context.read<DrugsListCubit>().loadDrugsList(pageNumber);
           },
           fontFamily: Platform.isAndroid

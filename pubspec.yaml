@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # set launch icon
   icons_launcher: ^2.0.2
 
   # for network

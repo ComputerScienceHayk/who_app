@@ -3,8 +3,16 @@
 <p float="center">
   <img src="screenshots/home_page.jpg" width="220" />
   <img src="screenshots/details.jpg" width="220" /> 
-  <img src="screenshots/no_inet.jpg" width="220" />
+  <img src="screenshots/offline_version.jpg" width="220" />
 </p>
+
+### Minimal versions 
+
+``` logcatfilter
+Android 6.0+ (23 API)
+iOS 12+
+```
+
 
 ### Run Locally
 

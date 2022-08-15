@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sdh_task/common/const_texts.dart';
 import 'package:sdh_task/feature/domain/entities/drug_details_entity.dart';
 import 'package:sdh_task/feature/presentation/bloc/drug_details_cubit/drug_details_cubit.dart';
 import 'package:sdh_task/feature/presentation/bloc/drug_details_cubit/drug_details_state.dart';
 import 'package:sdh_task/feature/presentation/widgets/details/description_line.dart';
+import 'package:sdh_task/feature/presentation/widgets/error_message.dart';
 import 'package:sdh_task/feature/presentation/widgets/loading_indicator.dart';
 
 class DrugInfo extends StatelessWidget {
@@ -21,11 +23,8 @@ class DrugInfo extends StatelessWidget {
         } else if (state is DrugDetailsLoaded) {
           drugDetails = state.drugDetailsEntity;
         } else if (state is DrugDetailsError) {
-          return Center(
-            child: Text(
-              state.message,
-              style: const TextStyle(color: Colors.white, fontSize: 25),
-            ),
+          return ErrorMessage(
+            errorType: state.message,
           );
         }
         return Column(
@@ -34,28 +33,28 @@ class DrugInfo extends StatelessWidget {
             Column(
               children: [
                 DescriptionLine(
-                  description: 'Trade label',
+                  description: ConstTexts.tradeLabel,
                   text: drugDetails?.tradeLabel ?? 'none',
                 ),
                 DescriptionLine(
-                  description: 'Manufacture name',
-                  text: drugDetails?.manufacturerName ?? 'none',
+                  description: ConstTexts.manufactureName,
+                  text: drugDetails?.manufacturerName ?? ConstTexts.noInformation,
                 ),
                 DescriptionLine(
-                  description: 'Packaging description',
-                  text: drugDetails?.packagingDescription ?? 'none',
+                  description: ConstTexts.packagingDescription,
+                  text: drugDetails?.packagingDescription ?? ConstTexts.noInformation,
                 ),
                 DescriptionLine(
-                  description: 'Composition description',
-                  text: drugDetails?.compositionDescription ?? 'none',
+                  description: ConstTexts.compositionDescription,
+                  text: drugDetails?.compositionDescription ?? ConstTexts.noInformation,
                 ),
                 DescriptionLine(
-                  description: 'Composition inn',
-                  text: drugDetails?.compositionInn ?? 'none',
+                  description: ConstTexts.compositionInn,
+                  text: drugDetails?.compositionInn ?? ConstTexts.noInformation,
                 ),
                 DescriptionLine(
-                  description: 'Composition pharm form',
-                  text: drugDetails?.compositionPharmForm ?? 'none',
+                  description: ConstTexts.compositionPharmForm,
+                  text: drugDetails?.compositionPharmForm ?? ConstTexts.noInformation,
                 ),
               ],
             ),

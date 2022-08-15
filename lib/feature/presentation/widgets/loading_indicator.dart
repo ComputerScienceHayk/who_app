@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sdh_task/common/const_size.dart';
 
@@ -9,10 +12,12 @@ class LoadingIndicator extends StatelessWidget {
     return SliverToBoxAdapter(
       child: SizedBox(
         height: MediaQuery.of(context).size.height - ConstSize.expandedHeight,
-        child: const Center(
+        child: Center(
           child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircularProgressIndicator(),
+            padding: const  EdgeInsets.all(8.0),
+            child:  Platform.isAndroid ? const CircularProgressIndicator():
+            Platform.isIOS ? const CupertinoActivityIndicator():
+            const CircularProgressIndicator(),
           ),
         ),
       ),

@@ -13,33 +13,44 @@ class DescriptionLine extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 80.0,
-      // margin: const EdgeInsets.only(left: 10.0, right: 10.0,),
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-      decoration: const BoxDecoration(
-        border: Border(
-            bottom: BorderSide(
-              color: AppColors.greyTextColor,
-            ),
+    return IntrinsicHeight(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          minHeight: 50,
+          maxHeight: 100,
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomText(
-            text: description,
-            color: AppColors.greyTextColor,
-            fontSize: 14.0,
-            fontWeight: FontWeight.bold,
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10.0,
+            vertical: 10.0,
           ),
-          const SizedBox(
-            height: 8.0,
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: AppColors.greyTextColor,
+              ),
+            ),
           ),
-          Expanded(child: CustomText(text: text),),
-        ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(
+                text: description,
+                color: AppColors.greyTextColor,
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              Expanded(
+                child: CustomText(text: text),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

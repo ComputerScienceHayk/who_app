@@ -5,6 +5,7 @@ import 'package:sdh_task/feature/domain/entities/drugs_list_entity.dart';
 import 'package:sdh_task/feature/presentation/bloc/drugs_list_cubit/drugs_list_cubit.dart';
 import 'package:sdh_task/feature/presentation/bloc/drugs_list_cubit/drugs_list_state.dart';
 import 'package:sdh_task/feature/presentation/widgets/drugs/drugs_list_item.dart';
+import 'package:sdh_task/feature/presentation/widgets/error_message.dart';
 import 'package:sdh_task/feature/presentation/widgets/loading_indicator.dart';
 
 class DrugsList extends StatelessWidget {
@@ -25,9 +26,8 @@ class DrugsList extends StatelessWidget {
           drugsList = state.drugsList;
         } else if (state is DrugsListError) {
           return SliverToBoxAdapter(
-            child: Text(
-              state.message,
-              style: const TextStyle(color: Colors.white, fontSize: 25),
+            child: ErrorMessage(
+              errorType: state.message,
             ),
           );
         }
